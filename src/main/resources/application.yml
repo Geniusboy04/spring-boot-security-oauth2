@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 1010
 
 spring:
   datasource:
@@ -23,3 +23,15 @@ spring:
     properties:
       hibernate:
         show_sql: true
+
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 25
+    username: 7497e3fc48dbac
+    password: 0cb641746c58eb
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

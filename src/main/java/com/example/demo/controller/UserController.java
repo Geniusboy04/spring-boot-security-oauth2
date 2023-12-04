@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.service.EmailService;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,12 @@ public class UserController {
 
     private final UserService userService;
 
+    private final EmailService emailService;
+
     @GetMapping("/register")
     public ResponseEntity<?> register(Principal principal){
         if (principal instanceof AbstractAuthenticationToken){
+            emailService.ff();
             return ResponseEntity.ok(userService.getUserAuthentication((AbstractAuthenticationToken) principal));
         }
         return ResponseEntity.ok("Error occurred");
